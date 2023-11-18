@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Window
 
-import 'theme'
+import 'components'
 
 Window {
     width: 1280
@@ -12,11 +12,8 @@ Window {
 
     property alias fontAwesomeFontLoader: fontAwesomeFontLoader
 
-    Rectangle {
-        width: Constants.leftMenuBarWidth
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        color: Theme.leftMenuBarColor
+    LeftMenuBar {
+
     }
 
     FontLoader {

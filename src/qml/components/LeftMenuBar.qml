@@ -12,6 +12,9 @@ Rectangle {
     property string activeMenuLabel: 'home'
 
     // Top Icon Image
+    MenuButtonImage {
+        id: userProfile
+    }
 
     // Menu Options
     Column {
@@ -64,5 +67,8 @@ Rectangle {
     }
 
     // Settings Options
-
+    MenuButtonIcon {
+        menuIcon: '\uf013'
+        anchors.bottom: parent.bottom
+    }
 }

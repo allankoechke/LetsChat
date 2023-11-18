@@ -24,6 +24,8 @@ qt_add_qml_module(appLetsChat
     QML_FILES src/qml/components/LeftMenuBar.qml
     QML_FILES src/qml/components/MenuButtonIcon.qml
     QML_FILES src/qml/components/CircularImage.qml
+    RESOURCES src/assets/imgs/user.png
+    QML_FILES src/qml/components/MenuButtonImage.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

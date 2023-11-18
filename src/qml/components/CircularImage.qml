@@ -17,6 +17,7 @@ Item {
         layer.effect: OpacityMask {
             maskSource: mask
         }
+        anchors.centerIn: parent
     }
 
     Rectangle {

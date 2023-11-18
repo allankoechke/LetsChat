@@ -3,19 +3,13 @@ import QtQuick.Controls
 import QtQuick.Controls.Universal
 import '../theme' as Kg
 
-Button {
+Item {
     id: root
     width: Kg.Constants.leftMenuBarWidth
     height: 0.8 * Kg.Constants.leftMenuBarWidth
-    padding: 0
     opacity: hovered ? 0.8 : down ? 0.7 : 1
 
     Behavior on opacity{ NumberAnimation{ duration: 200 }}
-
-    Universal.theme: Universal.Light
-    Universal.accent: buttonColor
-    Universal.background: buttonColor
-    Universal.foreground: internal.menuColor
 
     required property string menuIcon
     property bool buttonSelected: false
@@ -23,6 +17,12 @@ Button {
     property string buttonColor: Kg.Theme.leftMenuBarColor
     property string buttonHoverColor: Kg.Theme.leftMenuBarColor
     property string buttonDownColor: Kg.Theme.leftMenuBarColor
+    // property alias radius: bg.radius
+
+    signal clicked
+
+    property bool hovered: false
+    property bool down: false
 
     QtObject {
         id: internal
@@ -39,9 +39,10 @@ Button {
                                      }
     }
 
-    background: Rectangle {
+    Item {
         id: bg
-        color: internal.buttonColor
+        anchors.fill: parent
+        // color: internal.buttonColor
 
         LabelIcon {
             id: ico
@@ -61,4 +62,14 @@ Button {
         }
     }
 
+    MouseArea {
+        id: ma
+        anchors.fill: parent
+        hoverEnabled: true
+        onPressed: root.down=true
+        onReleased: root.down=false
+        onEntered: root.hovered=true
+        onExited: root.hovered=false
+        onClicked: root.clicked()
+    }
 }
